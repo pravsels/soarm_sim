@@ -1,26 +1,5 @@
 
-*.lock 
-
-# Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
-*$py.class
 
-# Virtual environments
-.venv/
-.env/
-.conda/
+uv.lock 
 
-# Python packaging
-build/
-dist/
-*.egg-info/
-
-# JAX / cache
-.cache/
-*.log
-
-# Outputs
-outputs/
-videos/
-figures/

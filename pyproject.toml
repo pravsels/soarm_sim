@@ -1,33 +1,13 @@
+
 [project]
 name = "soarm_sim"
-version = "0.1.0"
-description = "SO Arm sim and training using Brax + MuJoCo + JAX"
+version = "0.0.1"
+description = "SO Arm simulation with mujoco."
 readme = "README.md"
-requires-python = ">=3.11,<3.12"
+
+requires-python = ">=3.10"
 dependencies = [
-  "numpy",
-  "matplotlib",
-  "mediapy",
-  "imageio",
-  "imageio-ffmpeg",
-  "ipython",
-  "flax",
-  "optax",
-  "brax",
   "mujoco",
-  "playground",
-  "madrona-mjx",
+  "dm-control",
+  "numpy",
 ]
-
-[project.optional-dependencies]
-gpu = ["jax[cuda12]==0.4.33"]
-cpu = ["jax[cpu]==0.4.33"]
-# the version is due to madrona-mjx
-
-[tool.uv]
-managed = true
-
-# tell uv where to get madrona-mjx
-[tool.uv.sources]
-madrona-mjx = { path = "/opt/madrona_mjx", editable = true }
-
