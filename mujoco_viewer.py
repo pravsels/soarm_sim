@@ -24,13 +24,13 @@ def main():
     model = mujoco.MjModel.from_xml_path(model_path)
     data = mujoco.MjData(model)
     
-    print(f"✓ Model loaded successfully!")
+    print(f"Model loaded successfully!")
     print(f"  - Joints: {model.njnt}")
     print(f"  - Actuators: {model.nu}")
     print(f"  - Bodies: {model.nbody}")
     
     # Set home position
-    home_pos = [0, -1.57, 1.57, 1.57, -1.57, 0]
+    home_pos = [0, -1.57, 0, 1.57, -1.57, 0]
     if model.nu >= len(home_pos):
         data.ctrl[:len(home_pos)] = home_pos
     
