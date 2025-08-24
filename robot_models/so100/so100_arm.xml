@@ -1,4 +1,4 @@
-<mujoco model="so_arm100">
+<mujoco model="so100_arm">
   <compiler angle="radian" meshdir="assets/"/>
 
   <option cone="elliptic" impratio="10"/>
@@ -28,7 +28,7 @@
   </asset>
 
   <default>
-    <default class="so_arm100">
+    <default class="so100_arm">
       <joint frictionloss="0.1" armature="0.1"/>
       <position kp="50" dampratio="1" forcerange="-3.5 3.5"/>
       <default class="Rotation">
@@ -65,7 +65,7 @@
   </default>
 
   <worldbody>
-    <body name="Base" childclass="so_arm100">
+    <body name="Base" childclass="so100_arm">
       <geom type="mesh" mesh="Base" class="visual"/>
       <geom type="mesh" mesh="Base_Motor" class="motor_visual"/>
       <geom type="mesh" mesh="Base" class="collision"/>
