@@ -10,7 +10,7 @@ import time
     
 def main():
     # Path to model 
-    model_path = "robot_models/so100/scene.xml"
+    model_path = "robot_models/so101/scene.xml"
     
     if not os.path.exists(model_path):
         print(f"Model not found: {model_path}")
@@ -18,7 +18,7 @@ def main():
         print("Make sure you're running from the correct directory!")
         return
     
-    print("Loading SO ARM 100 model...")
+    print("Loading robot model ...")
     
     # Load model
     model = mujoco.MjModel.from_xml_path(model_path)
@@ -30,7 +30,7 @@ def main():
     print(f"  - Bodies: {model.nbody}")
     
     # Set home position
-    home_pos = [0, -1.57, 0, 1.57, -1.57, 0]
+    home_pos = [0, 0, 0, 0, 0, 0]
     if model.nu >= len(home_pos):
         data.ctrl[:len(home_pos)] = home_pos
     

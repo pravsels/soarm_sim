@@ -1,5 +1,5 @@
-<mujoco model="so100_arm scene">
-  <include file="so100_arm.xml"/>
+<mujoco model="so101_arm scene">
+  <include file="so101_arm.xml"/>
 
   <statistic center="0.1 -0.01 0.05" extent="0.5"/>
 
