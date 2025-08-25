@@ -10,4 +10,5 @@ dependencies = [
   "mujoco",
   "dm-control",
   "numpy",
+  "pyzmq>=26",
 ]
