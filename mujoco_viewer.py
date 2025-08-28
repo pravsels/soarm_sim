@@ -41,8 +41,8 @@ def run_loop(pub, sub, get_state, apply_state, topic_name, model, data):
                 pub.send_multipart([topic_name.encode(), json.dumps(msg).encode()])
 
                 viewer.sync()
-                
-                time.sleep(0.02)  # ~50Hz
+
+                time.sleep(0.01)  # ~100Hz
         except KeyboardInterrupt:
             pass
 
@@ -82,7 +82,16 @@ def main():
 
     def apply_real_state(qpos_real):
         n = min(model.nq, len(qpos_real))
-        data.qpos[:n] = qpos_real[:n]
+        
+        qpos_current = data.qpos[:n]
+        delta = qpos_real - qpos_current
+        # clip each joint to ±rad
+        max_step = 0.1
+        delta_clipped = np.clip(delta, -max_step, max_step)
+        qpos_next = qpos_current + delta_clipped
+
+        data.qpos[:n] = qpos_next
+
         mujoco.mj_forward(model, data)
     
     run_loop(pub, sub, get_sim_state, apply_real_state, "so101.state_sim", model, data)
